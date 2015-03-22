@@ -17,13 +17,14 @@ Briefly, the source data set contains a test and a training data set, both with 
 ## Target data
 The transformation script *run_analysis.R* creates a file named *aggregateData.txt*. Variables (columns) in this result file were obtained from mean value and standard deviation features in the source data set by averaging over all observations from the same test subject and with the same activity type from both test and training data. X, Y and Z components were kept separate like in the source data set and indicated by the last character of the variable name.
 
-* Body component of the acceleration signal (mean and standard deviation, respectively):
-** tBodyAcc_mean_X
-** tBodyAcc_mean_Y
-** tBodyAcc_mean_Z
-** tBodyAcc_std_X
-** tBodyAcc_std_Y
-** tBodyAcc_std_Z
+### Body component of the acceleration signal (mean and standard deviation, respectively):
+
+* tBodyAcc_mean_X
+* tBodyAcc_mean_Y
+* tBodyAcc_mean_Z
+* tBodyAcc_std_X
+* tBodyAcc_std_Y
+* tBodyAcc_std_Z
 
 * tGravityAcc_mean_X
 * tGravityAcc_mean_Y
