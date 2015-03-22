@@ -15,7 +15,11 @@ Briefly, the source data set contains a test and a training data set, both with 
 5. Mean value, standard deviation and other operations resulted in the final feature variables.
 
 ## Target data
-The transformation script *run_analysis.R* creates a file named *aggregateData.txt*. Variables (columns) in this result file were obtained from mean value and standard deviation features in the source data set by averaging over all observations from the same test subject and with the same activity type from both test and training data. X, Y and Z components were kept separate like in the source data set and indicated by the last character of the variable name.
+The transformation script *run_analysis.R* creates a file named *aggregateData.txt*. The following variables (columns) designate the measurement collection each record belongs to:
+* subject: id of the test subject the data is from.
+* activity: activity type the data belongs to.
+
+The additional variables (columns) in this result file were obtained from mean value and standard deviation features in the source data set by averaging over all observations from the same test subject and with the same activity type from both test and training data. X, Y and Z components were kept separate like in the source data set and indicated by the last character of the variable name.
 
 * Body component of the acceleration signal (in time domain):
   * tBodyAcc_mean_X
@@ -102,8 +106,9 @@ The transformation script *run_analysis.R* creates a file named *aggregateData.t
   * fBodyBodyGyroJerkMag_std
 
 ## Transformation of source to target data
-1. Merges the training and the test sets to create one data set.
-2. Extracts only the measurements on the mean and standard deviation for each measurement. 
-3. Uses descriptive activity names to name the activities in the data set
-4. Labels the data set with descriptive variable names. 
-5. From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
+The transformation script *run_analysis.R* transforms the source data set as follows to create the target set:
+1. Test and Training data (from X_test.txt and X_train.txt) are enriched with readable activity labels (from activity_labels.txt).
+2. For both test and training data, measurements on the mean and standard deviation for each measurement are extracted. 
+3. For both test and training data, Variables (columns) are labelled (with names taken from features.txt).
+4. Test and training data sets are merged into a single new data set.
+5. Each variable for each activity and each subject is aggregated by computing the average.

@@ -11,12 +11,23 @@ The actual data was downloaded from here:
 https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip 
 
 ## Content of this repository
-This project contains one R script called run_analysis.R that does the following:
 
-1. Merges the training and the test sets to create one data set.
-2. Extracts only the measurements on the mean and standard deviation for each measurement. 
-3. Uses descriptive activity names to name the activities in the data set
-4. Labels the data set with descriptive variable names. 
-5. From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
+### Code book
+Contains details about source data set, target data set and the transformation algorithm (*CodeBook.md*).
 
-See the code book for more details (*CodeBook.md*).
+### R script
+This project contains an R script called *run_analysis.R* that does the following:
+
+1. Reads in look-up tables with feature and activity labels.
+2. Loops over test and training data sets, performing the following in each case:
+  1. Measurement data are read from file (X_test.txt and X_train.txt, respectively).
+  2. Corresponding activity type is read from file (y_test and y_train.txt, respectively).
+  3. Corresponding subject id is read from file (subject_test.txt and subject_train.txt, respectively).
+  4. Target data are prepared with data category ("test" or "training", respectively).
+  5. Target data are prepared with test subject ids. 
+  6. Target data are prepared with readable activity labels using the look-up table mentioned above.
+  7. Measurements on the mean and standard deviation for each measurement are extracted and added to target data. 
+  8. Target data variables (columns) are labelled with names.
+3. Test and training data sets are merged into a single new data set.
+4. Each variable for each activity and each subject is aggregated by computing the average.
+
