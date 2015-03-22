@@ -21,6 +21,8 @@ The transformation script *run_analysis.R* creates a file named *aggregateData.t
 
 The additional variables (columns) in this result file were obtained from mean value and standard deviation features in the source data set by averaging over all observations from the same test subject and with the same activity type from both test and training data. X, Y and Z components were kept separate like in the source data set and indicated by the last character of the variable name.
 
+_IMPORTANT: All of the following variables are dimensionless because features in the source data set are normalized and bounded to the range [-1, 1]._
+
 * Body component of the acceleration signal (in time domain):
   * *tBodyAcc_mean_X*
   * *tBodyAcc_mean_Y*
