@@ -7,8 +7,8 @@ activityLabels <- read.table("UCI HAR Dataset/activity_labels.txt")
 
 # Prepare nice variable labels:
 label <-  gsub("-", "_", featureLabels[, 2])
-label <- gsub("\\(", "", labels)
-label <- gsub("\\)", "", labels)
+label <- gsub("\\(", "", label)
+label <- gsub("\\)", "", label)
 
 # Define file paths:
 subjectsFilePath = c("UCI HAR Dataset/test/subject_test.txt", "UCI HAR Dataset/train/subject_train.txt")
@@ -30,7 +30,7 @@ for (j in 1:2) { # Loop over test/training data sets
       # Perform look-up on activities:
       activities <- merge(activities, activityLabels, by.x = "V1", by.y="V1", all=FALSE, sort=FALSE)
             
-      # Set category, subjet and activity columns:
+      # Set category, subject and activity columns:
       dataSet <- data.frame(category = rep(dataCategory[j], length(subjects$V1)))
       dataSet$subject <- subjects$V1
       dataSet$activity <- activities$V2
@@ -58,6 +58,6 @@ idVars <- c("category", "subject", "activity")
 measureVars <- names(newDataSet)[!(names(newDataSet) %in% idVars)]
 meltedData <- melt(newDataSet, id = idVars, measure.vars = measureVars)
 aggregateData <- dcast(meltedData, subject + activity ~ variable, mean)
-write.table(aggregateData, file = "aggregateData.txt", row.name=FALSE)
+write.table(aggregateData, file = "aggregateData.txt", row.name=FALSE, quote=FALSE)
 
 
