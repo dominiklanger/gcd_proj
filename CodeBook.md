@@ -17,76 +17,89 @@ Briefly, the source data set contains a test and a training data set, both with 
 ## Target data
 The transformation script *run_analysis.R* creates a file named *aggregateData.txt*. Variables (columns) in this result file were obtained from mean value and standard deviation features in the source data set by averaging over all observations from the same test subject and with the same activity type from both test and training data. X, Y and Z components were kept separate like in the source data set and indicated by the last character of the variable name.
 
-* Body component of the acceleration signal (mean and standard deviation, respectively):
-
-** tBodyAcc_mean_X
-** tBodyAcc_mean_Y
-** tBodyAcc_mean_Z
-** tBodyAcc_std_X
-** tBodyAcc_std_Y
-** tBodyAcc_std_Z
-
-* tGravityAcc_mean_X
-* tGravityAcc_mean_Y
-* tGravityAcc_mean_Z
-* tGravityAcc_std_X
-* tGravityAcc_std_Y
-* tGravityAcc_std_Z
-* tBodyAccJerk_mean_X
-* tBodyAccJerk_mean_Y
-* tBodyAccJerk_mean_Z
-* tBodyAccJerk_std_X
-* tBodyAccJerk_std_Y
-* tBodyAccJerk_std_Z
-* tBodyGyro_mean_X
-* tBodyGyro_mean_Y
-* tBodyGyro_mean_Z
-* tBodyGyro_std_X
-* tBodyGyro_std_Y
-* tBodyGyro_std_Z
-* tBodyGyroJerk_mean_X
-* tBodyGyroJerk_mean_Y
-* tBodyGyroJerk_mean_Z
-* tBodyGyroJerk_std_X
-* tBodyGyroJerk_std_Y
-* tBodyGyroJerk_std_Z
-* tBodyAccMag_mean
-* tBodyAccMag_std
-* tGravityAccMag_mean
-* tGravityAccMag_std
-* tBodyAccJerkMag_mean
-* tBodyAccJerkMag_std
-* tBodyGyroMag_mean
-* tBodyGyroMag_std
-* tBodyGyroJerkMag_mean
-* tBodyGyroJerkMag_std
-* fBodyAcc_mean_X
-* fBodyAcc_mean_Y
-* fBodyAcc_mean_Z
-* fBodyAcc_std_X
-* fBodyAcc_std_Y
-* fBodyAcc_std_Z
-* fBodyAccJerk_mean_X
-* fBodyAccJerk_mean_Y
-* fBodyAccJerk_mean_Z
-* fBodyAccJerk_std_X
-* fBodyAccJerk_std_Y
-* fBodyAccJerk_std_Z
-* fBodyGyro_mean_X
-* fBodyGyro_mean_Y
-* fBodyGyro_mean_Z
-* fBodyGyro_std_X
-* fBodyGyro_std_Y
-* fBodyGyro_std_Z
-* fBodyAccMag_mean
-* fBodyAccMag_std
-* fBodyBodyAccJerkMag_mean
-* fBodyBodyAccJerkMag_std
-* fBodyBodyGyroMag_mean
-* fBodyBodyGyroMag_std
-* fBodyBodyGyroJerkMag_mean
-* fBodyBodyGyroJerkMag_std
-
+* Body component of the acceleration signal (in time domain):
+  * tBodyAcc_mean_X
+  * tBodyAcc_mean_Y
+  * tBodyAcc_mean_Z
+  * tBodyAcc_std_X
+  * tBodyAcc_std_Y
+  * tBodyAcc_std_Z
+* Gravity component of the acceleration signal (in time domain):
+  * tGravityAcc_mean_X
+  * tGravityAcc_mean_Y
+  * tGravityAcc_mean_Z
+  * tGravityAcc_std_X
+  * tGravityAcc_std_Y
+  * tGravityAcc_std_Z
+* Jerk signal obtained as time derivative of body acceleration (in time domain):
+  * tBodyAccJerk_mean_X
+  * tBodyAccJerk_mean_Y
+  * tBodyAccJerk_mean_Z
+  * tBodyAccJerk_std_X
+  * tBodyAccJerk_std_Y
+  * tBodyAccJerk_std_Z
+* Gyrometer signal (in time domain): 
+  * tBodyGyro_mean_X 
+  * tBodyGyro_mean_Y
+  * tBodyGyro_mean_Z
+  * tBodyGyro_std_X
+  * tBodyGyro_std_Y
+  * tBodyGyro_std_Z
+* Jerk signal obtained as time derivative of gyrometer signal (in time domain):
+  * tBodyGyroJerk_mean_X
+  * tBodyGyroJerk_mean_Y
+  * tBodyGyroJerk_mean_Z
+  * tBodyGyroJerk_std_X
+  * tBodyGyroJerk_std_Y
+  * tBodyGyroJerk_std_Z
+* Magnitude of body acceleration signal (in time domain):
+  * tBodyAccMag_mean
+  * tBodyAccMag_std
+* Magnitude of gravity signal (in time domain):
+  * tGravityAccMag_mean
+  * tGravityAccMag_std
+* Magnitude of acceleration jerk signal (in time domain):
+  * tBodyAccJerkMag_mean
+  * tBodyAccJerkMag_std
+* Magnitude of gyrometer signal (in time domain):
+  * tBodyGyroMag_mean
+  * tBodyGyroMag_std
+* Magnitude of gyrometer jerk signal (in time domain): 
+  * tBodyGyroJerkMag_mean
+  * tBodyGyroJerkMag_std
+* Body component of the acceleration signal (in frequency domain):
+  * fBodyAcc_mean_X
+  * fBodyAcc_mean_Y
+  * fBodyAcc_mean_Z
+  * fBodyAcc_std_X
+  * fBodyAcc_std_Y
+  * fBodyAcc_std_Z
+* Jerk signal obtained as time derivative of body acceleration (in frequency domain):
+  * fBodyAccJerk_mean_X
+  * fBodyAccJerk_mean_Y
+  * fBodyAccJerk_mean_Z
+  * fBodyAccJerk_std_X
+  * fBodyAccJerk_std_Y
+  * fBodyAccJerk_std_Z
+* Gyrometer signal (in frequency domain): 
+  * fBodyGyro_mean_X
+  * fBodyGyro_mean_Y
+  * fBodyGyro_mean_Z
+  * fBodyGyro_std_X
+  * fBodyGyro_std_Y
+  * fBodyGyro_std_Z
+* Magnitude of body acceleration signal (in frequency domain):  
+  * fBodyAccMag_mean
+  * fBodyAccMag_std
+* Magnitude of acceleration jerk signal (in frequency domain):  
+  * fBodyBodyAccJerkMag_mean
+  * fBodyBodyAccJerkMag_std
+* Magnitude of gyrometer signal (in frequency domain):  
+  * fBodyBodyGyroMag_mean
+  * fBodyBodyGyroMag_std
+* Magnitude of gyrometer jerk signal (in frequency domain):   
+  * fBodyBodyGyroJerkMag_mean
+  * fBodyBodyGyroJerkMag_std
 
 ## Transformation of source to target data
 1. Merges the training and the test sets to create one data set.
